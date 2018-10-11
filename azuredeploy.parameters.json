@@ -1,0 +1,54 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "appInsightsLocation": {
+      "value": "South Central US"
+    },
+    "applicationId": {
+      "value": ""
+    },
+    "applicationSecret": {
+      "value": ""
+    },
+    "applicationTenantId": {
+      "value": ""
+    },
+    "branch": {
+      "value": "master"
+    },
+    "cacheSKUName": {
+      "value": "Basic"
+    },
+    "cacheSKUFamily": {
+      "value": "C"
+    },
+    "cacheSKUCapacity": {
+      "value": 0
+    },
+    "hostingPlanName": {
+      "value": ""
+    },
+    "keyVaultAppCertThumbprint": {
+      "value": ""
+    },
+        "microsoftAppId": {
+      "value": ""
+    },
+    "microsoftAppPassword": {
+      "value": ""
+    },
+        "repoUrl": {
+      "value": "https://github.com/KrutiGuptaA/SampleARM"
+    },
+    "siteName": {
+      "value": ""
+    },
+    "skuName": {
+      "value": "B1"
+    },
+    "skuCapacity": {
+      "value": 1
+    }
+  }
+}

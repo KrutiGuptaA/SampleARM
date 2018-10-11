@@ -68,17 +68,6 @@
       "type": "string",
       "minLength": 1
     },
-    "keyVaultSkuName": {
-      "type": "string",
-      "defaultValue": "Standard",
-      "allowedValues": [
-        "Standard",
-        "Premium"
-      ],
-      "metadata": {
-        "description": "SKU for the vault"
-      }
-    },
     "microsoftAppId": {
       "type": "string",
       "minLength": 1
