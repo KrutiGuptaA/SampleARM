@@ -122,18 +122,7 @@
     "keyVaultName": "[concat('vault', uniqueString(resourceGroup().id))]"
   },
   "resources": [
-    {
-      "type": "Microsoft.CognitiveServices/accounts",
-      "sku": {
-        "name": "F0"
-      },
-      "kind": "LUIS",
-      "name": "[parameters('luisAccountName')]",
-      "apiVersion": "2016-02-01-preview",
-      "location": "westus",
-      "properties": {},
-      "dependsOn": []
-    },
+    
     {
       "type": "Microsoft.KeyVault/vaults",
       "name": "[variables('keyVaultName')]",
@@ -175,15 +164,7 @@
         "[concat('Microsoft.KeyVault/vaults/', variables('keyVaultName'))]"
       ]
     },
-    {
-      "type": "Microsoft.KeyVault/vaults/secrets",
-      "name": "[concat(variables('keyVaultName'), '/', 'LuisApiKey')]",
-      "apiVersion": "2015-06-01",
-      "properties": {
-        "contentType": "text/plain",
-        "value": "[parameters('luisApiKey')]"
-      },
-      "dependsOn": [
+    "dependsOn": [
         "[concat('Microsoft.KeyVault/vaults/', variables('keyVaultName'))]"
       ]
     },
@@ -211,18 +192,7 @@
         "[concat('Microsoft.KeyVault/vaults/', variables('keyVaultName'))]"
       ]
     },
-    {
-      "type": "Microsoft.KeyVault/vaults/secrets",
-      "name": "[concat(variables('keyVaultName'), '/', 'QnASubscriptionKey')]",
-      "apiVersion": "2015-06-01",
-      "properties": {
-        "contentType": "text/plain",
-        "value": "[parameters('qnASubscriptionKey')]"
-      },
-      "dependsOn": [
-        "[concat('Microsoft.KeyVault/vaults/', variables('keyVaultName'))]"
-      ]
-    },
+    
     {
       "name": "[variables('cacheName')]",
       "type": "Microsoft.Cache/Redis",
