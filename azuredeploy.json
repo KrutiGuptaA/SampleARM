@@ -68,6 +68,17 @@
       "type": "string",
       "minLength": 1
     },
+    "keyVaultSkuName": {
+      "type": "string",
+      "defaultValue": "Standard",
+      "allowedValues": [
+        "Standard",
+        "Premium"
+      ],
+      "metadata": {
+        "description": "SKU for the vault"
+      }
+    },
     "microsoftAppId": {
       "type": "string",
       "minLength": 1
@@ -122,7 +133,6 @@
     "keyVaultName": "[concat('vault', uniqueString(resourceGroup().id))]"
   },
   "resources": [
-    
     {
       "type": "Microsoft.KeyVault/vaults",
       "name": "[variables('keyVaultName')]",
@@ -176,19 +186,6 @@
         "[concat('Microsoft.KeyVault/vaults/', variables('keyVaultName'))]"
       ]
     },
-    {
-      "type": "Microsoft.KeyVault/vaults/secrets",
-      "name": "[concat(variables('keyVaultName'), '/', 'PartnerCenterApplicationSecret')]",
-      "apiVersion": "2015-06-01",
-      "properties": {
-        "contentType": "text/plain",
-        "value": "[parameters('partnerCenterApplicationSecret')]"
-      },
-      "dependsOn": [
-        "[concat('Microsoft.KeyVault/vaults/', variables('keyVaultName'))]"
-      ]
-    },
-    
     {
       "name": "[variables('cacheName')]",
       "type": "Microsoft.Cache/Redis",
@@ -273,8 +270,8 @@
             "ApplicationId": "[parameters('applicationId')]",
             "ApplicationTenantId": "[parameters('applicationTenantId')]",
             "InstrumentationKey": "[reference(concat('Microsoft.Insights/components/', parameters('siteName'))).InstrumentationKey]",
-            "PartnerCenter.AccountId": "[parameters('partnerCenterAccountId')]",
-            "PartnerCenter.ApplicationId": "[parameters('partnerCenterApplicationId')]",
+            
+            
             "KeyVaultEndpoint": "[concat('https://', variables('keyVaultName'), '.vault.azure.net')]"
           }
         }
