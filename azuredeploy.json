@@ -164,10 +164,6 @@
         "[concat('Microsoft.KeyVault/vaults/', variables('keyVaultName'))]"
       ]
     },
-    "dependsOn": [
-        "[concat('Microsoft.KeyVault/vaults/', variables('keyVaultName'))]"
-      ]
-    },
     {
       "type": "Microsoft.KeyVault/vaults/secrets",
       "name": "[concat(variables('keyVaultName'), '/', 'MicrosoftAppPassword')]",
