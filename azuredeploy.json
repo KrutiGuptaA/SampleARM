@@ -260,8 +260,6 @@
             "ApplicationId": "[parameters('applicationId')]",
             "ApplicationTenantId": "[parameters('applicationTenantId')]",
             "InstrumentationKey": "[reference(concat('Microsoft.Insights/components/', parameters('siteName'))).InstrumentationKey]",
-            "PartnerCenter.AccountId": "[parameters('partnerCenterAccountId')]",
-            "PartnerCenter.ApplicationId": "[parameters('partnerCenterApplicationId')]",
             "KeyVaultEndpoint": "[concat('https://', variables('keyVaultName'), '.vault.azure.net')]"
           }
         }
